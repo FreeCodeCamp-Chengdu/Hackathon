@@ -1,0 +1,45 @@
+{
+  "name": "facewall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreeCodeCamp-Chengdu/Hackathon.git"
+  },
+  "keywords": [
+    "three.js"
+  ],
+  "author": "HelenYin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FreeCodeCamp-Chengdu/Hackathon/issues"
+  },
+  "homepage": "https://github.com/FreeCodeCamp-Chengdu/Hackathon#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "express": "^4.15.4",
+    "html-webpack-plugin": "^2.30.1",
+    "opn": "^5.1.0",
+    "shelljs": "^0.7.8",
+    "url-loader": "^0.5.9",
+    "webpack": "^1.15.0",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "jquery": "^3.2.1",
+    "three": "^0.87.1"
+  }
+}
