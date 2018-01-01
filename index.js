@@ -1,6 +1,6 @@
 const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50
 const container = document.querySelector('#indexLizi')
-let camera, scene, renderer
+let camera, scene, renderer, texture, material, light1
 var particles = [], particle, count = 0
 
 init()
@@ -11,15 +11,35 @@ function init(){
 	camera.position.z = 1000
 
 	scene = new THREE.Scene()
+
+	light1 = new THREE.PointLight( 'red', 1, 100 )
+	light1.position.x = 0
+	light1.position.y = 0
+	light1.position.z = 700
+	scene.add( light1 )
+
+	//光源helper
+	var sphereSize = 1
+	var pointLightHelper = new THREE.PointLightHelper( light1, sphereSize )
+	scene.add( pointLightHelper )
+
 	const particleSystem = new THREE.Group()
-	var texture  = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png');
-	const material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture,})
 	const geometry = new THREE.Geometry()
-	// const light1 = new THREE.PointLight( 0xffffff, 1, 1000 )
-	// light1.position.x = 0
-	// light1.position.y = 0
-	// light1.position.z = 1000
-	// scene.add( light1 )
+
+	texture = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png')
+	texture.needsUpdate = true
+	material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture, lights: true})
+
+	//添加环境光
+	// var ambientLight = new THREE.AmbientLight(0x404040, 1000)
+	// scene.add( ambientLight )
+
+
+
+
+
+
+
 	geometry.vertices.push(new THREE.Vector3())
 
 	let i = 0
@@ -27,7 +47,7 @@ function init(){
 		for ( var iy = 0; iy < AMOUNTY; iy ++ ) {
 			particle = particles[ i ++ ] = new THREE.Points( geometry ,material )
 			particle.position.x = ix * SEPARATION - ( ( AMOUNTX * SEPARATION ) / 2 )
-			particle.position.y = -100
+			particle.position.y = - 100
 			particle.position.z = iy * SEPARATION - ( ( AMOUNTY * SEPARATION ) / 2 )
 			particleSystem.add(particle)
 		}
@@ -45,6 +65,7 @@ function animate(){
 	update()
 }
 function update(){
+	texture.needsUpdate = true
 	camera.lookAt( scene.position )
 	var i = 0;
 	for ( var ix = 0; ix < AMOUNTX; ix ++ ) {
@@ -56,7 +77,7 @@ function update(){
 				( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 4;
 		}
 	}
-	renderer.render( scene, camera );
+	renderer.render( scene, camera )
 	count += 0.1;
 }
 
