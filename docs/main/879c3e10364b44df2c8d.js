@@ -69,6 +69,11 @@
 		var texture = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png');
 		var material = new THREE.PointsMaterial({ size: 4, color: 0x95a4b4, map: texture });
 		var geometry = new THREE.Geometry();
+		// const light1 = new THREE.PointLight( 0xffffff, 1, 1000 )
+		// light1.position.x = 0
+		// light1.position.y = 0
+		// light1.position.z = 1000
+		// scene.add( light1 )
 		geometry.vertices.push(new THREE.Vector3());
 
 		var i = 0;
@@ -76,6 +81,7 @@
 			for (var iy = 0; iy < AMOUNTY; iy++) {
 				particle = particles[i++] = new THREE.Points(geometry, material);
 				particle.position.x = ix * SEPARATION - AMOUNTX * SEPARATION / 2;
+				particle.position.y = -100;
 				particle.position.z = iy * SEPARATION - AMOUNTY * SEPARATION / 2;
 				particleSystem.add(particle);
 			}
@@ -98,7 +104,7 @@
 		for (var ix = 0; ix < AMOUNTX; ix++) {
 			for (var iy = 0; iy < AMOUNTY; iy++) {
 				particle = particles[i++];
-				particle.position.y = Math.sin((ix + count) * 0.3) * 50 + Math.sin((iy + count) * 0.5) * 50;
+				particle.position.y = Math.sin((ix + count) * 0.3) * 20 + Math.sin((iy + count) * 0.5) * 20 - 100;
 				particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.3) + 1) * 4 + (Math.sin((iy + count) * 0.5) + 1) * 4;
 			}
 		}
