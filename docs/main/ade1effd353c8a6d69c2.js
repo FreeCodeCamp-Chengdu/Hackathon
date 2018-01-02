@@ -52,7 +52,10 @@
 	var container = document.querySelector('#indexLizi');
 	var camera = void 0,
 	    scene = void 0,
-	    renderer = void 0;
+	    renderer = void 0,
+	    texture = void 0,
+	    material = void 0,
+	    light1 = void 0;
 	var particles = [],
 	    particle,
 	    count = 0;
@@ -66,14 +69,46 @@
 
 		scene = new THREE.Scene();
 		var particleSystem = new THREE.Group();
+
+		// texture  = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png')
+
+		//
+		// material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture})
+
+
+		light1 = new THREE.PointLight('red', 1, 100);
+		light1.position.x = 0;
+		light1.position.y = 0;
+		light1.position.z = 700;
+		scene.add(light1);
+
+		//光源helper
+		var sphereSize = 1;
+		var pointLightHelper = new THREE.PointLightHelper(light1, sphereSize);
+		scene.add(pointLightHelper);
+
 		var texture = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png');
-		var material = new THREE.PointsMaterial({ size: 4, color: 0x95a4b4, map: texture });
+		material = new THREE.PointsMaterial({ size: 4, color: 0x95a4b4, map: texture });
+
+		//材质
+		// var uniforms = {
+		// 	color:{value: new THREE.Color(0xffffff)},
+		// 	texture:{value: new THREE.TextureLoader().load( "//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png")},
+		// 	val: {value: 1.0}
+		// };
+		// material = new THREE.ShaderMaterial({
+		// 	uniforms:       uniforms,
+		// 	vertexShader:   document.getElementById('vertexshader').textContent,
+		// 	fragmentShader: document.getElementById('fragmentshader').textContent,
+		// 	blending:       THREE.AdditiveBlending,
+		// 	depthTest:      false,
+		// 	transparent:    true
+		// });
+
+		// console.log(document.getElementById('vertexshader').textContent)
+		// console.log(document.getElementById('fragmentshader').textContent)
+
 		var geometry = new THREE.Geometry();
-		// const light1 = new THREE.PointLight( 0xffffff, 1, 1000 )
-		// light1.position.x = 0
-		// light1.position.y = 0
-		// light1.position.z = 1000
-		// scene.add( light1 )
 		geometry.vertices.push(new THREE.Vector3());
 
 		var i = 0;
