@@ -33,7 +33,7 @@ function init(){
 	var pointLightHelper = new THREE.PointLightHelper( light1, sphereSize )
 	scene.add( pointLightHelper )
 
-	var texture = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png')
+	var texture = new THREE.TextureLoader().load('static/texture/dot.png')
 	material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture})
 
 	//材质
