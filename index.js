@@ -11,6 +11,16 @@ function init(){
 	camera.position.z = 1000
 
 	scene = new THREE.Scene()
+	const particleSystem = new THREE.Group()
+
+
+	// texture  = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png')
+
+	//
+	// material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture})
+
+
+
 
 	light1 = new THREE.PointLight( 'red', 1, 100 )
 	light1.position.x = 0
@@ -23,23 +33,28 @@ function init(){
 	var pointLightHelper = new THREE.PointLightHelper( light1, sphereSize )
 	scene.add( pointLightHelper )
 
-	const particleSystem = new THREE.Group()
+	var texture = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png')
+	material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture})
+
+	//材质
+	// var uniforms = {
+	// 	color:{value: new THREE.Color(0xffffff)},
+	// 	texture:{value: new THREE.TextureLoader().load( "//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png")},
+	// 	val: {value: 1.0}
+	// };
+	// material = new THREE.ShaderMaterial({
+	// 	uniforms:       uniforms,
+	// 	vertexShader:   document.getElementById('vertexshader').textContent,
+	// 	fragmentShader: document.getElementById('fragmentshader').textContent,
+	// 	blending:       THREE.AdditiveBlending,
+	// 	depthTest:      false,
+	// 	transparent:    true
+	// });
+
+	// console.log(document.getElementById('vertexshader').textContent)
+	// console.log(document.getElementById('fragmentshader').textContent)
+
 	const geometry = new THREE.Geometry()
-
-	texture = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png')
-	texture.needsUpdate = true
-	material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture, lights: true})
-
-	//添加环境光
-	// var ambientLight = new THREE.AmbientLight(0x404040, 1000)
-	// scene.add( ambientLight )
-
-
-
-
-
-
-
 	geometry.vertices.push(new THREE.Vector3())
 
 	let i = 0
@@ -47,7 +62,7 @@ function init(){
 		for ( var iy = 0; iy < AMOUNTY; iy ++ ) {
 			particle = particles[ i ++ ] = new THREE.Points( geometry ,material )
 			particle.position.x = ix * SEPARATION - ( ( AMOUNTX * SEPARATION ) / 2 )
-			particle.position.y = - 100
+			particle.position.y = -100
 			particle.position.z = iy * SEPARATION - ( ( AMOUNTY * SEPARATION ) / 2 )
 			particleSystem.add(particle)
 		}
@@ -65,7 +80,6 @@ function animate(){
 	update()
 }
 function update(){
-	texture.needsUpdate = true
 	camera.lookAt( scene.position )
 	var i = 0;
 	for ( var ix = 0; ix < AMOUNTX; ix ++ ) {
