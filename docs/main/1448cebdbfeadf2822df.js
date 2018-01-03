@@ -78,14 +78,16 @@
 
 
 		light1 = new THREE.PointLight(0xFFFFFF, 1, 500);
-		light1.position.x = -200;
+		light1.position.x = -170;
 		light1.position.y = 0;
-		light1.position.z = 700;
+		light1.position.z = 500;
+		light1.power = 50;
 		scene.add(light1);
 		light2 = new THREE.PointLight('blue', 1, 500);
-		light2.position.x = 200;
+		light2.position.x = 170;
 		light2.position.y = 0;
-		light2.position.z = 700;
+		light2.position.z = 500;
+		light2.power = 50;
 		scene.add(light2);
 
 		//光源helper
@@ -122,7 +124,7 @@
 		for (var ix = 0; ix < AMOUNTX; ix++) {
 			for (var iy = 0; iy < AMOUNTY; iy++) {
 				material = new THREE.PointsMaterial({ size: 4,
-					color: new THREE.Color(0x95a4b4),
+					color: new THREE.Color(0xFFFFFF),
 					map: texture,
 					lights: true });
 				// particle = particles[ i ++ ] = new THREE.Points( geometry ,material )
