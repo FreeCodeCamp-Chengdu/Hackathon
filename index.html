@@ -30,18 +30,22 @@
 		</style>
 	</head>
 	<body>
-		<script type="x-shader/x-vertex" id="vertexshader">
+		<script id="vs" type="x-shader/x-vertex">
 			varying vec2 vUv;
-			void main(){
-				vUv = uv;
-				gl_Positon = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+			void main()
+			{
+					// passing texture to fragment shader
+					vUv = uv;
+
+					gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 			}
 		</script>
-		<script type="x-shader/x-fragment" id="fragmentshader">
-			varying vec2 vUv;
-			void main() {
-				gl_FragColor = vec4( vUv.x, vUv.y, 1.0, 1.0 );
-			}
+
+		<script id="fs" type="x-shader/x-fragment">
+				varying vec2 vUv;
+				void main() {
+						gl_FragColor = vec4(vUv.x, vUv.y, 0.0, 1.0);
+				}
 		</script>
 		<div id="container">
 			<div class="index"></div>
