@@ -9,6 +9,9 @@
 				margin: 0;
 				padding: 0;
 			}
+			img{
+				display: block;
+			}
 			html, body, #container{
 				width: 100%;
 				height: 100%;
@@ -27,29 +30,37 @@
 				bottom: 0;
 				width: 100%;
 			}
+			.center-contianer{
+				position: absolute;
+				top: 10%;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 50%;
+			}
+			.center-contianer img{
+				width: 100%;
+			}
+			.logo-container{
+				position: absolute;
+				bottom: 5%;
+			}
+			.logo-container img{
+				width: 90%;
+				margin: 0 auto;
+			}
 		</style>
 	</head>
 	<body>
-		<script id="vs" type="x-shader/x-vertex">
-			varying vec2 vUv;
-			void main()
-			{
-					// passing texture to fragment shader
-					vUv = uv;
-
-					gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-			}
-		</script>
-
-		<script id="fs" type="x-shader/x-fragment">
-				varying vec2 vUv;
-				void main() {
-						gl_FragColor = vec4(vUv.x, vUv.y, 0.0, 1.0);
-				}
-		</script>
 		<div id="container">
 			<div class="index"></div>
 			<div id="indexLizi"></div>
 		</div>
+		<div class="center-contianer">
+			<img src="static/images/center.png" alt="新耀杯" />
+		</div>
+		<div class="logo-container">
+			<img src="static/images/logo_botton.png" alt="logo" />
+		</div>
+
 	</body>
 </html>
