@@ -71,12 +71,6 @@
 		scene = new THREE.Scene();
 		var particleSystem = new THREE.Group();
 
-		// texture  = new THREE.TextureLoader().load('//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png')
-
-		//
-		// material = new THREE.PointsMaterial({size: 4, color: 0x95a4b4, map: texture})
-
-
 		light1 = new THREE.PointLight(0xFFFFFF, 1, 500);
 		light1.position.x = -170;
 		light1.position.y = 0;
@@ -91,31 +85,13 @@
 		scene.add(light2);
 
 		//光源helper
-		var sphereSize = 1;
-		var pointLightHelper1 = new THREE.PointLightHelper(light1, sphereSize);
-		scene.add(pointLightHelper1);
-		var pointLightHelper2 = new THREE.PointLightHelper(light2, sphereSize);
-		scene.add(pointLightHelper2);
+		// var sphereSize = 1
+		// var pointLightHelper1 = new THREE.PointLightHelper( light1, sphereSize )
+		// scene.add( pointLightHelper1 )
+		// var pointLightHelper2 = new THREE.PointLightHelper( light2, sphereSize )
+		// scene.add( pointLightHelper2 )
 
 		var texture = new THREE.TextureLoader().load('static/texture/dot.png');
-
-		//材质
-		// var uniforms = {
-		// 	color:{value: new THREE.Color(0xffffff)},
-		// 	texture:{value: new THREE.TextureLoader().load( "//game.gtimg.cn/images/tgideas/2017/three/shader/dot.png")},
-		// 	val: {value: 1.0}
-		// };
-		// material = new THREE.ShaderMaterial({
-		// 	uniforms:       uniforms,
-		// 	vertexShader:   document.getElementById('vertexshader').textContent,
-		// 	fragmentShader: document.getElementById('fragmentshader').textContent,
-		// 	blending:       THREE.AdditiveBlending,
-		// 	depthTest:      false,
-		// 	transparent:    true
-		// });
-
-		// console.log(document.getElementById('vertexshader').textContent)
-		// console.log(document.getElementById('fragmentshader').textContent)
 
 		var geometry = new THREE.Geometry();
 		geometry.vertices.push(new THREE.Vector3());
