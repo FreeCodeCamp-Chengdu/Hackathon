@@ -26,10 +26,7 @@ var devOpt = {
           template: 'index.html',
           inject: true}),
         new InsertHtml({paths: [
-          '../static/lib/Projector.js',
-          '../static/lib/CanvasRenderer.js',
           '../static/lib/three.js',
-          '../static/lib/tween.min.js',
         ]})
       ]
 }
