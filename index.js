@@ -14,15 +14,11 @@ function init(){
 	const particleSystem = new THREE.Group()
 
 	light1 = new THREE.PointLight( 0xFFFFFF, 1, 500 )
-	light1.position.x = -170
-	light1.position.y = 0
-	light1.position.z = 500
+	light1.position.set(-170, 0, 500)
 	light1.power = 50
 	scene.add( light1 )
 	light2 = new THREE.PointLight( 'blue', 1, 500 )
-	light2.position.x = 170
-	light2.position.y = 0
-	light2.position.z = 500
+	light2.position.set(170, 0, 500)
 	light2.power = 50
 	scene.add( light2 )
 
@@ -46,7 +42,6 @@ function init(){
 																			color: new THREE.Color(0xFFFFFF),
 																			map: texture,
 																			lights: true})
-			// particle = particles[ i ++ ] = new THREE.Points( geometry ,material )
 			particle = particles[ i ++ ] = new THREE.Points( geometry ,material )
 			particle.position.x = ix * SEPARATION - ( ( AMOUNTX * SEPARATION ) / 2 )
 			particle.position.y = -100
@@ -82,4 +77,24 @@ function update(){
 	count += 0.1;
 }
 
+	var box = document.createElement('div');
+	box.style.setProperty('background-color', '#008800');
+	box.style.setProperty('width', '100px');
+	box.style.setProperty('height', '100px');
+	document.body.appendChild(box)
+
+// 	var coords = { x: 0, y: 0 }
+// 	var tween = new TWEEN.Tween(coords)
+// 					.to({ x: 300, y: 200 }, 1000)
+// 					.easing(TWEEN.Easing.Quadratic.Out)
+// 					.onUpdate(function() {
+// 							box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
+// 					})
+// 					.start()
+
+// function animateBox(time) {
+// 	requestAnimationFrame(animateBox);
+// 	TWEEN.update(time);
+// }
+// requestAnimationFrame(animateBox);
 
