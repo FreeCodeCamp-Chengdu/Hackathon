@@ -49,9 +49,78 @@
 				width: 90%;
 				margin: 0 auto;
 			}
+			@keyframes star
+			{
+				0% {
+						right: 0;
+						top: 0;
+						opacity: 0.6;
+					}
+				50%{
+					opacity: 0;
+				}
+				100% {
+					right: 50%;
+					top: 50%;
+					opacity: 0;
+				}
+			}
+			@keyframes star1
+			{
+				0% {
+						right: 50%;
+						top: -60px;
+						opacity: 0.6;
+					}
+				70%{
+					opacity: 0;
+				}
+				100% {
+					right: 80%;
+					top: 100%;
+					opacity: 0;
+				}
+			}
+			/* @keyframes star2
+			{
+				0% {
+						right: 70%;
+						top: 40%;
+						opacity: 0.6;
+					}
+				50%{
+					opacity: 0;
+				}
+				100% {
+					right: 90%;
+					top: 90%;
+					opacity: 0;
+				}
+			} */
+			.star,.star1{
+				width: 2px;
+				height: 200px;
+				position: absolute;
+				z-index: 10;
+				transform: rotate(45deg);
+				opacity: 0.6;
+				background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
+			}
+			.star{
+				animation: star 5s ease-in infinite;
+			}
+			.star1{
+				animation: star1 5s ease-in infinite;
+			}
+			/* .star2{
+				animation: star2 3s ease-in infinite;
+			} */
 		</style>
 	</head>
 	<body>
+		<div class="star"></div>
+		<div class="star1"></div>
+		<div class="star2"></div>
 		<div id="container">
 			<div class="index"></div>
 			<div id="indexLizi"></div>

@@ -1,6 +1,6 @@
 const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50
 const container = document.querySelector('#indexLizi')
-let camera, scene, renderer, texture, material, light1, light2
+let camera, scene, renderer, texture, material, light1, light2, light3
 var particles = [], particle, count = 0
 
 init()
@@ -20,6 +20,10 @@ function init(){
 	light2 = new THREE.PointLight( 'blue', 1, 500 )
 	light2.position.set(170, 0, 500)
 	light2.power = 50
+	scene.add( light2 )
+	light3 = new THREE.PointLight( 'white', 1, 500 )
+	light3.position.set(0, 0, 500)
+	light3.power = 50
 	scene.add( light2 )
 
 	//光源helper
@@ -76,25 +80,3 @@ function update(){
 	renderer.render( scene, camera )
 	count += 0.1;
 }
-
-	var box = document.createElement('div');
-	box.style.setProperty('background-color', '#008800');
-	box.style.setProperty('width', '100px');
-	box.style.setProperty('height', '100px');
-	document.body.appendChild(box)
-
-// 	var coords = { x: 0, y: 0 }
-// 	var tween = new TWEEN.Tween(coords)
-// 					.to({ x: 300, y: 200 }, 1000)
-// 					.easing(TWEEN.Easing.Quadratic.Out)
-// 					.onUpdate(function() {
-// 							box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
-// 					})
-// 					.start()
-
-// function animateBox(time) {
-// 	requestAnimationFrame(animateBox);
-// 	TWEEN.update(time);
-// }
-// requestAnimationFrame(animateBox);
-
