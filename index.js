@@ -1,4 +1,4 @@
-const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50
+const SEPARATION = 50, AMOUNTX = 80, AMOUNTY = 80
 const container = document.querySelector('#indexLizi')
 let camera, scene, renderer, texture, material, light1, light2, light3
 var particles = [], particle, count = 0

@@ -46,9 +46,9 @@
 
 	'use strict';
 
-	var SEPARATION = 100,
-	    AMOUNTX = 50,
-	    AMOUNTY = 50;
+	var SEPARATION = 50,
+	    AMOUNTX = 80,
+	    AMOUNTY = 80;
 	var container = document.querySelector('#indexLizi');
 	var camera = void 0,
 	    scene = void 0,
