@@ -86,11 +86,27 @@
 				}
 				100% {
 					right: 80%;
+					top: 80%;
+					opacity: 0;
+				}
+			}
+			@keyframes star2
+			{
+				0% {
+						right: 60%;
+						top: -150px;
+						opacity: 0.6;
+					}
+				70%{
+					opacity: 0;
+				}
+				100% {
+					right: 100%;
 					top: 100%;
 					opacity: 0;
 				}
 			}
-			.star,.star1{
+			.star,.star1,.star2{
 				width: 2px;
 				height: 200px;
 				position: absolute;
@@ -100,10 +116,13 @@
 				background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
 			}
 			.star{
-				animation: star 5s ease-in infinite;
+				animation: star 5s ease-in-out infinite;
 			}
 			.star1{
-				animation: star1 5s ease-in 3s infinite;
+				animation: star1 5s ease-in-out 3s infinite;
+			}
+			.star2{
+				animation: star1 5s ease-in-out 5s infinite;
 			}
 		</style>
 	</head>
