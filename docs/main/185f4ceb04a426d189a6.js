@@ -47,8 +47,8 @@
 	'use strict';
 
 	var SEPARATION = 50,
-	    AMOUNTX = 80,
-	    AMOUNTY = 80;
+	    AMOUNTX = 50,
+	    AMOUNTY = 50;
 	var container = document.querySelector('#indexLizi');
 	var camera = void 0,
 	    scene = void 0,
@@ -68,6 +68,7 @@
 	function init() {
 		camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 1, 10000);
 		camera.position.z = 1000;
+		camera.position.y = -50;
 
 		scene = new THREE.Scene();
 		var particleSystem = new THREE.Group();
@@ -100,7 +101,7 @@
 		var i = 0;
 		for (var ix = 0; ix < AMOUNTX; ix++) {
 			for (var iy = 0; iy < AMOUNTY; iy++) {
-				material = new THREE.PointsMaterial({ size: 7,
+				material = new THREE.PointsMaterial({ size: 10,
 					color: new THREE.Color(0xFFFFFF),
 					map: texture,
 					lights: true });
@@ -129,7 +130,7 @@
 		for (var ix = 0; ix < AMOUNTX; ix++) {
 			for (var iy = 0; iy < AMOUNTY; iy++) {
 				particle = particles[i++];
-				particle.position.y = Math.sin((ix + count) * 0.3) * 20 + Math.sin((iy + count) * 0.5) * 20 - 100;
+				particle.position.y = Math.sin((ix + count) * 0.3) * 20 + Math.sin((iy + count) * 0.5) * 20 - 250;
 				particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.3) + 1) * 4 + (Math.sin((iy + count) * 0.5) + 1) * 4;
 			}
 		}
