@@ -13,15 +13,15 @@ function init(){
 	scene = new THREE.Scene()
 	const particleSystem = new THREE.Group()
 
-	light1 = new THREE.PointLight( 0xFFFFFF, 1, 500 )
+	light1 = new THREE.PointLight( 0x407ea8, 1, 500 )
 	light1.position.set(-170, 0, 500)
 	light1.power = 50
 	scene.add( light1 )
-	light2 = new THREE.PointLight( 'blue', 1, 500 )
+	light2 = new THREE.PointLight( 0x9ec2c6, 1, 500 )
 	light2.position.set(170, 0, 500)
 	light2.power = 50
 	scene.add( light2 )
-	light3 = new THREE.PointLight( 'white', 1, 500 )
+	light3 = new THREE.PointLight( 0xFFFFFF, 1, 500 )
 	light3.position.set(0, 0, 500)
 	light3.power = 50
 	scene.add( light2 )
@@ -42,7 +42,7 @@ function init(){
 	let i = 0
 	for ( var ix = 0; ix < AMOUNTX; ix ++ ) {
 		for ( var iy = 0; iy < AMOUNTY; iy ++ ) {
-			material = new THREE.PointsMaterial({size: 4,
+			material = new THREE.PointsMaterial({size: 7,
 																			color: new THREE.Color(0xFFFFFF),
 																			map: texture,
 																			lights: true})
