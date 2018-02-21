@@ -59,78 +59,55 @@
 			.logo-container img{
 				width: 100%;
 			}
-			@keyframes star
+			@keyframes star1
 			{
-				0% {
-						right: 0;
-						top: -100px;
-						opacity: 0.6;
-					}
-				50%{
-					opacity: 0;
+				from{
+					right: 0;
+					top: 0;
+					opacity: 1;
 				}
-				100% {
+				to{
 					right: 50%;
 					top: 50%;
 					opacity: 0;
 				}
 			}
-			@keyframes star1
-			{
-				0% {
-						right: 50%;
-						top: -150px;
-						opacity: 0.6;
-					}
-				70%{
-					opacity: 0;
-				}
-				100% {
-					right: 80%;
-					top: 80%;
-					opacity: 0;
-				}
-			}
 			@keyframes star2
 			{
-				0% {
-						right: 60%;
-						top: -150px;
-						opacity: 0.6;
-					}
-				70%{
-					opacity: 0;
+				from {
+					right: 50%;
+					top: 0;
+					opacity: 1;
 				}
-				100% {
+				to{
 					right: 100%;
 					top: 100%;
 					opacity: 0;
 				}
 			}
-			.star,.star1,.star2{
+			.star1,.star2,.star3{
 				width: 4px;
 				height: 200px;
-				position: absolute;
+				position: fixed;
 				z-index: 10;
-				transform: rotate(45deg);
+				right: 0;
+				top: 0;
+				transform: rotate(45deg) translate(-150%, -150%);
 				opacity: 0.6;
 				background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
 			}
-			/* .star{
-				animation: star 5s ease-in-out infinite;
-			}
 			.star1{
-				animation: star1 5s ease-in-out 3s infinite;
+				animation: star1 5s infinite both;
 			}
 			.star2{
-				animation: star1 5s ease-in-out 5s infinite;
-			} */
+				animation: star2 5s 3s infinite both;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="star"></div>
 		<div class="star1"></div>
 		<div class="star2"></div>
+		<div class="star3"></div>
 		<img class="logo" src="static/images/logo.png" alt="logo">
 		<div id="container">
 			<div class="index"></div>
